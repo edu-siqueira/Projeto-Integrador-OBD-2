@@ -1,0 +1,753 @@
+{
+  "name": "frame_4",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "x69Ok6TEGH7AYN4VwVPdST",
+    "node": "121:60",
+    "version": "4357610078",
+    "component-id": "cd44175cb5fde9ad6375e77dc88d9279128b5170"
+  },
+  "default": "Frame 4",
+  "documentation": "Tela de log de erros.",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Log de Erros"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 8"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 9"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 10"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 11"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 12"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 13"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 14"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 15"
+      },
+      {
+        "type": "text",
+        "id": "P0087"
+      },
+      {
+        "type": "text",
+        "id": "P0442"
+      },
+      {
+        "type": "text",
+        "id": "P0234"
+      },
+      {
+        "type": "text",
+        "id": "P0420"
+      },
+      {
+        "type": "text",
+        "id": "pressão na rampa de injeção muito baixa"
+      },
+      {
+        "type": "text",
+        "id": "fuga no sistema pelo módulo de comando do motor"
+      },
+      {
+        "type": "text",
+        "id": "pressão de sobrealimentação muito elevada"
+      },
+      {
+        "type": "text",
+        "id": "eficiência do catalisador abaixo do limite definido"
+      },
+      {
+        "type": "vector",
+        "id": "Ellipse 1"
+      },
+      {
+        "type": "group",
+        "id": "🦆 icon \"align justify\""
+      },
+      {
+        "type": "vector",
+        "id": "Vector"
+      }
+    ],
+    "modes": {
+      "Frame 4": {
+        "rules": [
+          {
+            "id": "top_level",
+            "border-radius": "2.0",
+            "stroke-width": "1.0",
+            "stroke-color": {
+              "alpha": "0.09803921568627451",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "is-structured": "false",
+            "children": [
+              "Log de Erros",
+              "Rectangle 8",
+              "Rectangle 9",
+              "Rectangle 10",
+              "Rectangle 11",
+              "Rectangle 12",
+              "Rectangle 13",
+              "Rectangle 14",
+              "Rectangle 15",
+              "P0087",
+              "P0442",
+              "P0234",
+              "P0420",
+              "pressão na rampa de injeção muito baixa",
+              "fuga no sistema pelo módulo de comando do motor",
+              "pressão de sobrealimentação muito elevada",
+              "eficiência do catalisador abaixo do limite definido",
+              "Ellipse 1",
+              "🦆 icon \"align justify\""
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "40.0",
+              "saturation": "0.0967741935483871",
+              "value": "0.12156862745098039"
+            }
+          },
+          {
+            "id": "Log de Erros",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "73.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "116.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "221.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "51.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.8978494623655915",
+              "value": "0.7294117647058823"
+            },
+            "text-content": "Log de Erros",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "26.0",
+            "line-height": "1.1538461303710938",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "Rectangle 8",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "19.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "181.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "317.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_8.svg"
+          },
+          {
+            "id": "Rectangle 9",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "19.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "284.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "317.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_9.svg"
+          },
+          {
+            "id": "Rectangle 10",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "19.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "387.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "317.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_10.svg"
+          },
+          {
+            "id": "Rectangle 11",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "19.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "485.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "317.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_11.svg"
+          },
+          {
+            "id": "Rectangle 12",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "14.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "181.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "90.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_12.svg"
+          },
+          {
+            "id": "Rectangle 13",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "13.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "284.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "90.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_13.svg"
+          },
+          {
+            "id": "Rectangle 14",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "19.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "387.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "90.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_14.svg"
+          },
+          {
+            "id": "Rectangle 15",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "19.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "485.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "90.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_15.svg"
+          },
+          {
+            "id": "P0087",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "25.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "204.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "24.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.9333333333333333"
+            },
+            "text-content": "P0087",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "line-height": "2.1428572082519532",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "P0442",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "25.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "305.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "24.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.9333333333333333"
+            },
+            "text-content": "P0442",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "line-height": "2.1428572082519532",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "P0234",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "27.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "408.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "24.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.9333333333333333"
+            },
+            "text-content": "P0234",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "line-height": "2.1428572082519532",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "P0420",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "27.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "505.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "24.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.9333333333333333"
+            },
+            "text-content": "P0420",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "line-height": "2.1428572082519532",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "pressão na rampa de injeção muito baixa",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "115.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "183.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "75.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.8978494623655915",
+              "value": "0.7294117647058823"
+            },
+            "text-content": "pressão na rampa de injeção muito baixa",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align-vertical": "center",
+            "line-height": "1.0714286041259766",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "fuga no sistema pelo módulo de comando do motor",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "109.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "288.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "75.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.8978494623655915",
+              "value": "0.7294117647058823"
+            },
+            "text-content": "fuga no sistema pelo módulo\nde comando do motor",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align-vertical": "center",
+            "line-height": "1.0714286041259766",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "pressão de sobrealimentação muito elevada",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "115.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "389.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "75.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.8978494623655915",
+              "value": "0.7294117647058823"
+            },
+            "text-content": "pressão de sobrealimentação\nmuito elevada",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align-vertical": "center",
+            "line-height": "1.0714286041259766",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "eficiência do catalisador abaixo do limite definido",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "115.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "487.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "75.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.8978494623655915",
+              "value": "0.7294117647058823"
+            },
+            "text-content": "eficiência do catalisador abaixo do limite definido",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align-vertical": "center",
+            "line-height": "1.0714286041259766",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "Ellipse 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "19.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "20.0"
+              }
+            },
+            "tap-handler": "$onSettingsClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "67.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "66.0"
+              }
+            },
+            "vector-content": "ellipse_1.svg"
+          },
+          {
+            "id": "🦆 icon \"align justify\"",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "37.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "43.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "31.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "20.0"
+              }
+            },
+            "is-structured": "false",
+            "children": [
+              "Vector"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "Vector",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "vector.svg"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onSettingsClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Frame 4",
+      "size": {
+        "width": 355.0,
+        "height": 567.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

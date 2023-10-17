@@ -1,0 +1,448 @@
+{
+  "name": "frame_1",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "x69Ok6TEGH7AYN4VwVPdST",
+    "node": "105:3",
+    "version": "4357610078",
+    "component-id": "d201a5088a24ca2afd95856327840d67a84c37af"
+  },
+  "default": "Frame 1",
+  "documentation": "tela inicial do app",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "top_level_synth"
+      },
+      {
+        "type": "text",
+        "id": "Email"
+      },
+      {
+        "type": "text",
+        "id": "Senha"
+      },
+      {
+        "type": "text",
+        "id": "Criar uma conta"
+      },
+      {
+        "type": "text",
+        "id": "Entrar"
+      },
+      {
+        "type": "text",
+        "id": "Seja Bem-Vindo!"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 2"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 3"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 4"
+      },
+      {
+        "type": "text",
+        "id": "Esqueceu a senha?"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 5"
+      }
+    ],
+    "modes": {
+      "Frame 1": {
+        "rules": [
+          {
+            "id": "top_level",
+            "border-radius": "2.0",
+            "is-structured": "false",
+            "children": [
+              "top_level_synth",
+              "Email",
+              "Senha",
+              "Criar uma conta",
+              "Entrar"
+            ],
+            "background-color": "$Frame 1 background color"
+          },
+          {
+            "id": "top_level_synth",
+            "opacity": "100.0",
+            "padding": {
+              "left": "39.0",
+              "top": "90.0",
+              "right": "39.0",
+              "bottom": "90.0"
+            },
+            "border-radius": "2.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "main-axis-align": "start",
+            "children": [
+              "Seja Bem-Vindo!",
+              "Rectangle 2",
+              "Rectangle 3",
+              "Rectangle 4",
+              "Esqueceu a senha?",
+              "Rectangle 5"
+            ],
+            "item-spacing": "17.0"
+          },
+          {
+            "id": "Email",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "62.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "178.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "61.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "39.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "$Email text content",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "line-height": "2.1428572082519532",
+            "typeface": "Orbitron"
+          },
+          {
+            "id": "Senha",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "61.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "241.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "61.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "39.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "$Senha text content",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "line-height": "2.1428572082519532",
+            "typeface": "Orbitron"
+          },
+          {
+            "id": "Criar uma conta",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "92.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "425.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "164.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "39.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "$Criar uma conta text content",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "line-height": "2.1428572082519532",
+            "typeface": "Orbitron"
+          },
+          {
+            "id": "Entrar",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "99.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "301.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "155.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "39.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "$Entrar text content",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "21.0",
+            "line-height": "1.6666667175292968",
+            "typeface": "Orbitron"
+          },
+          {
+            "id": "Seja Bem-Vindo!",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "275.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "64.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "$Seja Bem-Vindo! text content",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "24.0",
+            "line-height": "1.25",
+            "typeface": "Orbitron"
+          },
+          {
+            "id": "Rectangle 2",
+            "border-radius": "10.0",
+            "tap-handler": "$on Email Click",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "249.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "46.0"
+              }
+            },
+            "vector-content": "rectangle_2.svg"
+          },
+          {
+            "id": "Rectangle 3",
+            "border-radius": "10.0",
+            "tap-handler": "$on Password Click",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "249.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "46.0"
+              }
+            },
+            "vector-content": "rectangle_3.svg"
+          },
+          {
+            "id": "Rectangle 4",
+            "border-radius": "10.0",
+            "tap-handler": "$on Click",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "249.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "46.0"
+              }
+            },
+            "vector-content": "rectangle_4.svg"
+          },
+          {
+            "id": "Esqueceu a senha?",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "197.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "39.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "$Esqueceu a senha? text content",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "11.0",
+            "line-height": "2.727272644042969",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "Rectangle 5",
+            "border-radius": "10.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "249.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "46.0"
+              }
+            },
+            "vector-content": "rectangle_5.svg"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "Frame 1 background color": {
+      "data-type": "color",
+      "required": false,
+      "description": ""
+    },
+    "Email text content": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "Senha text content": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "Criar uma conta text content": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "Entrar text content": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "Seja Bem-Vindo! text content": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "on Email Click": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "on Password Click": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "on Click": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "Esqueceu a senha? text content": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Frame 1",
+      "size": {
+        "width": 353.0,
+        "height": 552.0
+      },
+      "parameters": {
+        "Frame 1 background color": {
+          "alpha": "1.0",
+          "hue": "40.0",
+          "saturation": "0.1",
+          "value": "0.11764705882352941"
+        },
+        "Email text content": "Email",
+        "Senha text content": "Senha",
+        "Criar uma conta text content": "Criar uma conta",
+        "Entrar text content": "Entrar",
+        "Seja Bem-Vindo! text content": "Seja Bem-Vindo!",
+        "Esqueceu a senha? text content": "Esqueceu a senha?"
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

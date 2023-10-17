@@ -1,0 +1,717 @@
+{
+  "name": "frame_3",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "x69Ok6TEGH7AYN4VwVPdST",
+    "node": "120:31",
+    "version": "4357610078",
+    "component-id": "0f0617a476b4c0111ad15623200ae5502c2c69be"
+  },
+  "default": "Frame 3",
+  "documentation": "Tela de seleção de dados.",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "Dados Selecionados"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 4"
+      },
+      {
+        "type": "text",
+        "id": "Bateria"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 6"
+      },
+      {
+        "type": "text",
+        "id": "Rpm"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 5"
+      },
+      {
+        "type": "text",
+        "id": "Combustivel"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 7"
+      },
+      {
+        "type": "text",
+        "id": "Radiador"
+      },
+      {
+        "type": "vector",
+        "id": "Ellipse 1"
+      },
+      {
+        "type": "group",
+        "id": "🦆 icon \"align justify\""
+      },
+      {
+        "type": "image",
+        "id": "Car Battery"
+      },
+      {
+        "type": "image",
+        "id": "Gas Station"
+      },
+      {
+        "type": "image",
+        "id": "Speedometer"
+      },
+      {
+        "type": "image",
+        "id": "Toggle On"
+      },
+      {
+        "type": "image",
+        "id": "Toggle On1"
+      },
+      {
+        "type": "image",
+        "id": "Toggle On2"
+      },
+      {
+        "type": "image",
+        "id": "Car Radiator"
+      },
+      {
+        "type": "image",
+        "id": "Toggle Off"
+      },
+      {
+        "type": "vector",
+        "id": "Vector"
+      }
+    ],
+    "modes": {
+      "Frame 3": {
+        "rules": [
+          {
+            "id": "top_level",
+            "border-radius": "2.0",
+            "stroke-width": "1.0",
+            "stroke-color": {
+              "alpha": "0.09803921568627451",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "is-structured": "false",
+            "children": [
+              "Dados Selecionados",
+              "Rectangle 4",
+              "Bateria",
+              "Rectangle 6",
+              "Rpm",
+              "Rectangle 5",
+              "Combustivel",
+              "Rectangle 7",
+              "Radiador",
+              "Ellipse 1",
+              "🦆 icon \"align justify\"",
+              "Car Battery",
+              "Gas Station",
+              "Speedometer",
+              "Toggle On",
+              "Toggle On1",
+              "Toggle On2",
+              "Car Radiator",
+              "Toggle Off"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "40.0",
+              "saturation": "0.0967741935483871",
+              "value": "0.12156862745098039"
+            }
+          },
+          {
+            "id": "Dados Selecionados",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "67.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "110.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "221.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "51.0"
+              }
+            },
+            "font-weight": "600.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "Dados Selecionados",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "16.0",
+            "line-height": "1.875",
+            "typeface": "Orbitron"
+          },
+          {
+            "id": "Rectangle 4",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "40.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "157.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "271.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_4.svg"
+          },
+          {
+            "id": "Bateria",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "54.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "194.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "74.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "26.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "Bateria",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "15.0",
+            "line-height": "1.36181640625",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "Rectangle 6",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "40.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "341.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "271.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_6.svg"
+          },
+          {
+            "id": "Rpm",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "64.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "384.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "36.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "19.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "Rpm",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "15.0",
+            "line-height": "1.36181640625",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "Rectangle 5",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "40.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "249.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "271.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_5.svg"
+          },
+          {
+            "id": "Combustivel",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "47.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "296.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "98.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "18.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "45.22613065326633",
+              "saturation": "0.9255813953488372",
+              "value": "0.8431372549019608"
+            },
+            "text-content": "Combustivel",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "13.0",
+            "line-height": "1.36181640625",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "Rectangle 7",
+            "border-radius": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "40.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "441.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "271.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "73.0"
+              }
+            },
+            "vector-content": "rectangle_7.svg"
+          },
+          {
+            "id": "Radiador",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "52.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "487.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "98.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "18.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.3411764705882353"
+            },
+            "text-content": "Radiador\n",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "13.0",
+            "line-height": "1.36181640625",
+            "typeface": "Open Sans"
+          },
+          {
+            "id": "Ellipse 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "12.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "31.0"
+              }
+            },
+            "tap-handler": "$on Settings Click",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "67.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "66.0"
+              }
+            },
+            "vector-content": "ellipse_1.svg"
+          },
+          {
+            "id": "🦆 icon \"align justify\"",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "30.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "54.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "31.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "20.0"
+              }
+            },
+            "is-structured": "false",
+            "children": [
+              "Vector"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "Car Battery",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "59.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "157.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "40.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "37.0"
+              }
+            },
+            "image-content": "car_battery.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Gas Station",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "59.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "249.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "54.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "52.0"
+              }
+            },
+            "image-content": "gas_station.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Speedometer",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "60.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "333.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "45.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "61.0"
+              }
+            },
+            "image-content": "speedometer.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Toggle On",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "202.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "171.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "79.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "45.0"
+              }
+            },
+            "image-content": "toggle_on.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Toggle On1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "202.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "263.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "79.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "45.0"
+              }
+            },
+            "image-content": "toggle_on.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Toggle On2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "202.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "355.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "79.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "45.0"
+              }
+            },
+            "image-content": "toggle_on.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Car Radiator",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "58.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "429.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "49.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "76.0"
+              }
+            },
+            "image-content": "car_radiator.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Toggle Off",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "202.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "455.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "79.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "45.0"
+              }
+            },
+            "image-content": "toggle_off.png",
+            "scale": "contain"
+          },
+          {
+            "id": "Vector",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "vector.svg"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "on Settings Click": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Frame 3",
+      "size": {
+        "width": 355.0,
+        "height": 567.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
