@@ -1,9 +1,15 @@
 package com.example.projeto_pi2
 
+import android.content.Context
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothManager
+import android.content.Intent
+
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.expandVertically
@@ -29,9 +35,36 @@ import com.example.projeto_pi2.frame3.Frame3
 import com.example.projeto_pi2.frame4.Frame4
 import com.example.projeto_pi2.ui.theme.Projetopi2Theme
 
+private const val ENABLE_BLUETOOTH_REQUEST_CODE = 1
+
 class MainActivity : ComponentActivity() {
+    // Inicializando adaptador Bluetooth
+    private val bluetoothAdapter: BluetoothAdapter by lazy {
+        val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+        bluetoothManager.adapter
+    }
+
+    // Pedindo permissão para ativar Bluetooth
+    private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        result ->
+        if (result.resultCode == RESULT_OK) {
+            // Continuar
+        } else {
+            // Mostrar mensagem de erro: bluetooth desativado
+            print("Ligue o bluetooth para utilizar o aplicativo")
+        }
+    }
+
+    private fun requestBluetooth() {
+        val enableByIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+        activityResultLauncher.launch(enableByIntent)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if(!bluetoothAdapter.isEnabled) {
+            requestBluetooth()
+        }
         setContent {
             Projetopi2Theme {
                 // A surface container using the 'background' color from the theme
