@@ -1,12 +1,15 @@
 package com.example.projeto_pi2
 
+import android.Manifest
 import android.content.Context
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Intent
+import android.os.Build
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -45,6 +48,25 @@ class MainActivity : ComponentActivity() {
     }
 
     // Pedindo permissão para ativar Bluetooth
+    private fun checkAndroidVersion () {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Android 11-
+            this.requestPermissions.launch(arrayOf(
+                Manifest.permission.BLUETOOTH_SCAN,
+                Manifest.permission.BLUETOOTH_CONNECT
+            ))
+        } else {
+            // Android 12+
+            this.requestBluetooth()
+        }
+    }
+
+    private val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+        permissions.entries.forEach {
+            Log.d("test006", "${it.key} = ${it.value}")
+        }
+    }
+
     private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         result ->
         if (result.resultCode == RESULT_OK) {
@@ -62,6 +84,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.checkAndroidVersion();
         if(!bluetoothAdapter.isEnabled) {
             requestBluetooth()
         }
