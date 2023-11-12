@@ -3,8 +3,10 @@ package com.example.projeto_pi2
 import android.Manifest
 import android.content.Context
 import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 
 import android.graphics.Color
@@ -82,12 +84,25 @@ class MainActivity : ComponentActivity() {
         activityResultLauncher.launch(enableByIntent)
     }
 
+    private fun getPairedDevices(): Set<BluetoothDevice> {
+        var pairedDevices: Set<BluetoothDevice> = emptySet()
+        if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+            pairedDevices = bluetoothAdapter.bondedDevices
+            pairedDevices?.forEach { device ->
+                val deviceName = device.name
+                val deviceHardwareAddress = device.address
+            }
+        }
+       return pairedDevices
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.checkAndroidVersion();
         if(!bluetoothAdapter.isEnabled) {
-            requestBluetooth()
+            requestBluetooth();
         }
+        this.getPairedDevices();
         setContent {
             Projetopi2Theme {
                 // A surface container using the 'background' color from the theme
