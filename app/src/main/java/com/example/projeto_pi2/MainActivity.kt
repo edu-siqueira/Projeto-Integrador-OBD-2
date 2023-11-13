@@ -1,15 +1,17 @@
 package com.example.projeto_pi2
 
+import com.example.projeto_pi2.parameters.engine.RPMCommand
+
 import android.Manifest
 import android.content.Context
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
+import android.bluetooth.BluetoothSocket
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -39,8 +41,11 @@ import com.example.projeto_pi2.frame2.Frame2
 import com.example.projeto_pi2.frame3.Frame3
 import com.example.projeto_pi2.frame4.Frame4
 import com.example.projeto_pi2.ui.theme.Projetopi2Theme
+import java.io.OutputStream
+import java.util.UUID
 
 private const val ENABLE_BLUETOOTH_REQUEST_CODE = 1
+private var MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
 
 class MainActivity : ComponentActivity() {
     // Inicializando adaptador Bluetooth
@@ -91,18 +96,72 @@ class MainActivity : ComponentActivity() {
             pairedDevices?.forEach { device ->
                 val deviceName = device.name
                 val deviceHardwareAddress = device.address
+                val deviceUUID = device.uuids
+                Log.d("Nomes", device.name.toString())
+                Log.d("MAC", device.address.toString())
+                Log.d("UUID", device.uuids[0].uuid.toString())
             }
         }
-       return pairedDevices
+        return pairedDevices
+    }
+
+    private fun getSocket(): BluetoothSocket? {
+        val devices = getPairedDevices();
+        var obddevice: BluetoothDevice? = null;
+        var socket: BluetoothSocket? = null;
+        devices.forEach{ device ->
+            if (device.uuids[0].uuid.toString() == "00001101-0000-1000-8000-00805f9b34fb") {
+                obddevice = device
+                MY_UUID = device.uuids[0].uuid
+
+            }
+        }
+        try {
+            if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+                socket = obddevice?.createInsecureRfcommSocketToServiceRecord(MY_UUID);
+            }
+            return socket;
+        } catch (error: Exception) {
+            // Criar aviso que não achou o OBDII
+            Log.d("Erro", error.toString())
+            return socket
+        }
+    }
+
+    private fun initializeAdapter(socket: BluetoothSocket?) {
+        // atz, atl1, ath0, atsp0
+        try {
+            val reset = "AT Z"
+            val feed = "AT L1"
+            val headers = "AT H0"
+            val protocol = "AT SP 0"
+            val outputStream: OutputStream? = socket?.outputStream
+            outputStream?.write(reset.toByteArray());
+            outputStream?.write(feed.toByteArray());
+            outputStream?.write(headers.toByteArray());
+            outputStream?.write(protocol.toByteArray());
+        } catch (e: Exception) {
+            Log.d("Adaptador", e.toString())
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.checkAndroidVersion();
-        if(!bluetoothAdapter.isEnabled) {
+        if (!bluetoothAdapter.isEnabled) {
             requestBluetooth();
         }
-        this.getPairedDevices();
+        val socket = getSocket();
+
+        if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED){
+            socket?.let {
+                socket.connect();
+                initializeAdapter(socket)
+            }
+        }
+        Thread.sleep(10000);
+        val rpm = RPMCommand()
+
         setContent {
             Projetopi2Theme {
                 // A surface container using the 'background' color from the theme
@@ -151,6 +210,11 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+        }
+        while (true) {
+            rpm.sendCommand(socket)
+            Log.d("RPM", rpm.receiveResponse(socket))
+            Thread.sleep(1000)
         }
     }
 }
