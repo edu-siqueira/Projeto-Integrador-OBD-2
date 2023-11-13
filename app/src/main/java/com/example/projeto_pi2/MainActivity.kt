@@ -39,6 +39,7 @@ import com.example.projeto_pi2.frame2.Frame2
 import com.example.projeto_pi2.frame3.Frame3
 import com.example.projeto_pi2.frame4.Frame4
 import com.example.projeto_pi2.ui.theme.Projetopi2Theme
+import com.example.projeto_pi2.ui.screens.telaInicial.*
 
 private const val ENABLE_BLUETOOTH_REQUEST_CODE = 1
 
@@ -118,7 +119,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable("tela_inicial", ) {
                             EnterAnimation {
-                                Frame1(emailTextContent = "Email",
+                                Tela_Inicial(emailTextContent = "Email",
                                     senhaTextContent = "Senha",
                                     entrarTextContent = "Entrar",
                                     sejaBemVindoTextContent = "Seja Bem-Vindo!",
