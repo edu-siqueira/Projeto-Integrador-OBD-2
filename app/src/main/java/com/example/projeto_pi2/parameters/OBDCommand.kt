@@ -12,12 +12,15 @@ import java.io.OutputStream
 
 abstract class OBDCommand (val cmd: String) {
 
-    fun sendCommand (socket: BluetoothSocket?) {
+    fun sendCommand (socket: BluetoothSocket?): String {
         try {
             val outputStream: OutputStream? = socket?.outputStream
             outputStream?.write(cmd.toByteArray());
+            val resposta = receiveResponse(socket)
+            return resposta
         } catch (e: Exception) {
             Log.d("Erro", e.toString())
+            return e.toString()
         }
     }
 
