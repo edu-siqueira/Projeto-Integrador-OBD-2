@@ -130,13 +130,13 @@ class MainActivity : ComponentActivity() {
     private fun initializeAdapter(socket: BluetoothSocket?) {
         // atz, atl1, ath0, atsp0
         try {
-            val set_default = "AT D"
-            val reset = "AT Z"
-            val echo = "AT E0"
-            val feed = "AT L0"
-            val spaces = "AT S0"
-            val headers = "AT H0"
-            val protocol = "AT SP 0"
+            val set_default = "AT D\r"
+            val reset = "AT Z\r"
+            val echo = "AT E0\r"
+            val feed = "AT L0\r"
+            val spaces = "AT S0\r"
+            val headers = "AT H0\r"
+            val protocol = "AT SP 0\r"
             val outputStream: OutputStream? = socket?.outputStream
             val inputStream: InputStream? = socket?.inputStream
             outputStream?.write(set_default.toByteArray());
