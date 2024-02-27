@@ -132,9 +132,9 @@ class MainActivity : ComponentActivity() {
         try {
             val set_default = "AT D\r"
             val reset = "AT Z\r"
-            val echo = "AT E0\r"
+            val echo = "AT E1\r"
             val feed = "AT L0\r"
-            val spaces = "AT S0\r"
+            val spaces = "AT S1\r"
             val headers = "AT H0\r"
             val protocol = "AT SP 0\r"
             val outputStream: OutputStream? = socket?.outputStream
