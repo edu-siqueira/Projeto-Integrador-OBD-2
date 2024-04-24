@@ -1,19 +1,10 @@
 package com.example.projeto_pi2
 
-import android.Manifest
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
-import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.expandVertically
@@ -27,36 +18,39 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.projeto_pi2.frame1.Frame1
-import com.example.projeto_pi2.frame2.Frame2
 import com.example.projeto_pi2.frame3.Frame3
 import com.example.projeto_pi2.frame4.Frame4
-import com.example.projeto_pi2.parameters.engine.RPMCommand
 import com.example.projeto_pi2.telaPrincipal.Tela_Principal
 import com.example.projeto_pi2.ui.screens.telaInicial.Tela_Inicial
 import com.example.projeto_pi2.ui.theme.Projetopi2Theme
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.UUID
+import kotlinx.coroutines.delay
 
 private const val ENABLE_BLUETOOTH_REQUEST_CODE = 1
 private var MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
 
 class MainActivity : ComponentActivity() {
     // Inicializando adaptador Bluetooth
-    private val bluetoothAdapter: BluetoothAdapter by lazy {
+    /*private val bluetoothAdapter: BluetoothAdapter by lazy {
         val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         bluetoothManager.adapter
-    }
+    }*/
 
     // Pedindo permissão para ativar Bluetooth
-    private fun checkAndroidVersion () {
+    /*private fun checkAndroidVersion () {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             // Android 11-
             this.requestPermissions.launch(arrayOf(
@@ -67,15 +61,15 @@ class MainActivity : ComponentActivity() {
             // Android 12+
             this.requestBluetooth()
         }
-    }
+    }*/
 
-    private val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+    /*private val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         permissions.entries.forEach {
             Log.d("test006", "${it.key} = ${it.value}")
         }
-    }
+    }*/
 
-    private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    /*private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         result ->
         if (result.resultCode == RESULT_OK) {
             // Continuar
@@ -83,14 +77,14 @@ class MainActivity : ComponentActivity() {
             // Mostrar mensagem de erro: bluetooth desativado
             print("Ligue o bluetooth para utilizar o aplicativo")
         }
-    }
+    }*/
 
-    private fun requestBluetooth() {
+    /*private fun requestBluetooth() {
         val enableByIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
         activityResultLauncher.launch(enableByIntent)
-    }
+    }*/
 
-    private fun getPairedDevices(): Set<BluetoothDevice> {
+    /*private fun getPairedDevices(): Set<BluetoothDevice> {
         var pairedDevices: Set<BluetoothDevice> = emptySet()
         if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
             pairedDevices = bluetoothAdapter.bondedDevices
@@ -104,19 +98,11 @@ class MainActivity : ComponentActivity() {
             }
         }
         return pairedDevices
-    }
+    }*/
 
-    private fun getSocket(): BluetoothSocket? {
-//        val devices = getPairedDevices();
-        var obddevice: BluetoothDevice? = bluetoothAdapter.getRemoteDevice("AA:BB:CC:11:22:33");
+    /*private fun getSocket(): BluetoothSocket? {
+        val obddevice: BluetoothDevice? = bluetoothAdapter.getRemoteDevice("AA:BB:CC:11:22:33");
         var socket: BluetoothSocket? = null;
-//        devices.forEach{ device ->
-//            if (device.uuids[0].uuid.toString() == "00001101-0000-1000-8000-00805f9b34fb" && device.name.toString() == "OBD2") {
-//                obddevice = device
-//                MY_UUID = device.uuids[0].uuid
-//                Log.d("Scanner", MY_UUID.toString())
-//            }
-//        }
         try {
             if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
                 socket = obddevice?.createRfcommSocketToServiceRecord(MY_UUID);
@@ -127,7 +113,7 @@ class MainActivity : ComponentActivity() {
             Log.d("Scanner", error.toString())
             return socket
         }
-    }
+    }*/
 
     private fun initializeAdapter(socket: BluetoothSocket?) {
         // atz, atl1, ath0, atsp0
@@ -161,13 +147,13 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.checkAndroidVersion();
-        if (!bluetoothAdapter.isEnabled) {
+        //this.checkAndroidVersion();
+        /*if (!bluetoothAdapter.isEnabled) {
             requestBluetooth();
         }
-        var socket = getSocket()
+        val socket = getSocket()*/
 
-        if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED){
+        /*if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED){
             try {
                 socket?.let {
                     bluetoothAdapter.cancelDiscovery()
@@ -179,11 +165,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         Thread.sleep(10000);
-        val rpm = RPMCommand()
-        while (true) {
-            Log.d("RPM", rpm.sendCommand(socket))
-            Thread.sleep(1000)
-        }
+        val rpm = RPMCommand()*/
 
         setContent {
             Projetopi2Theme {
@@ -193,6 +175,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
+                    val rpmViewer = RPMViewer()
 
                     NavHost(
                         navController = navController,
@@ -215,7 +198,7 @@ class MainActivity : ComponentActivity() {
                                 Tela_Principal(
                                     errorsCountTextContent = "3 erro(s) detectados!",
                                     voltsTextContent = "14.5 Volts",
-                                    rpmTextContent = Text("$rpm"),
+                                    rpmTextContent = rpmViewer,
                                     param67TextContent = "67%",
                                     onSettingsClick = { navController.navigate("tela_de_opcoes") },
                                     onErrorClick = { navController.navigate("tela_de_erros") },
@@ -272,5 +255,17 @@ fun EnterAnimation(content: @Composable () -> Unit) {
         content()
     }
 }
+@Composable
+fun RPMViewer(): String {
 
+    var rpm by remember { mutableStateOf(0) }
 
+    LaunchedEffect(key1 = true) {
+        while (true) {
+            delay(1000)
+            rpm = (rpm + 100) % 10000  // Simula o aumento do RPM até 8000
+        }
+    }
+
+    return rpm.toString() + " rpm"
+}

@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,6 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
@@ -39,7 +40,7 @@ fun Tela_Principal(
     modifier: Modifier = Modifier,
     errorsCountTextContent: String = "",
     voltsTextContent: String = "",
-    rpmTextContent: Unit,
+    rpmTextContent: String,
     param67TextContent: String = "",
     onErrorClick: () -> Unit = {},
     onSettingsClick: () -> Unit = {}
@@ -56,7 +57,9 @@ fun Tela_Principal(
                 )
             )
         )
-        Vector(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+        Vector(modifier = Modifier
+            .rowWeight(1.0f)
+            .columnWeight(1.0f))
         Rectangle2(
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
@@ -132,7 +135,9 @@ fun Tela_Principal(
                 )
             )
         ) {
-            Vector1(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+            Vector1(modifier = Modifier
+                .rowWeight(1.0f)
+                .columnWeight(1.0f))
         }
         Rectangle4(
             modifier = Modifier.boxAlign(
@@ -201,10 +206,12 @@ private fun Frame2Preview() {
                 errorsCountTextContent = "3 Erro(s) detectados",
                 onErrorClick = {},
                 voltsTextContent = "14.5 Volts",
-                rpmTextContent = Text("teste"),
+                rpmTextContent = "",
                 onSettingsClick = {},
                 param67TextContent = "67%",
-                modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)
+                modifier = Modifier
+                    .rowWeight(1.0f)
+                    .columnWeight(1.0f)
             )
         }
     }
@@ -229,7 +236,10 @@ fun Class3ErroSDetectados(
         height = 1.875.em,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.tappable(onTap = onErrorClick).requiredWidth(221.0.dp).requiredHeight(51.0.dp)
+        modifier = modifier
+            .tappable(onTap = onErrorClick)
+            .requiredWidth(221.0.dp)
+            .requiredHeight(51.0.dp)
     )
 }
 
@@ -237,14 +247,17 @@ fun Class3ErroSDetectados(
 fun Vector(modifier: Modifier = Modifier) {
     RelayVector(
         vector = painterResource(R.drawable.frame_2_vector),
-        modifier = modifier.padding(
-            paddingValues = PaddingValues(
-                start = 152.0.dp,
-                top = 109.0.dp,
-                end = 152.41998291015625.dp,
-                bottom = 412.4782257080078.dp
+        modifier = modifier
+            .padding(
+                paddingValues = PaddingValues(
+                    start = 152.0.dp,
+                    top = 109.0.dp,
+                    end = 152.41998291015625.dp,
+                    bottom = 412.4782257080078.dp
+                )
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
 
@@ -252,19 +265,22 @@ fun Vector(modifier: Modifier = Modifier) {
 fun Rectangle2(modifier: Modifier = Modifier) {
     RelayVector(
         vector = painterResource(R.drawable.frame_2_rectangle_2),
-        modifier = modifier.requiredWidth(293.0.dp).requiredHeight(73.0.dp).relayDropShadow(
-            color = Color(
-                alpha = 63,
-                red = 0,
-                green = 0,
-                blue = 0
-            ),
-            borderRadius = 10.0.dp,
-            blur = 4.0.dp,
-            offsetX = 0.0.dp,
-            offsetY = 4.0.dp,
-            spread = 0.0.dp
-        )
+        modifier = modifier
+            .requiredWidth(293.0.dp)
+            .requiredHeight(73.0.dp)
+            .relayDropShadow(
+                color = Color(
+                    alpha = 63,
+                    red = 0,
+                    green = 0,
+                    blue = 0
+                ),
+                borderRadius = 10.0.dp,
+                blur = 4.0.dp,
+                offsetX = 0.0.dp,
+                offsetY = 4.0.dp,
+                spread = 0.0.dp
+            )
     )
 }
 
@@ -284,7 +300,9 @@ fun Bateria(modifier: Modifier = Modifier) {
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(54.0.dp).requiredHeight(26.0.dp)
+        modifier = modifier
+            .requiredWidth(54.0.dp)
+            .requiredHeight(26.0.dp)
     )
 }
 
@@ -307,7 +325,9 @@ fun Class145Volts(
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(134.0.dp).requiredHeight(36.0.dp)
+        modifier = modifier
+            .requiredWidth(134.0.dp)
+            .requiredHeight(36.0.dp)
     )
 }
 
@@ -315,19 +335,22 @@ fun Class145Volts(
 fun Rectangle3(modifier: Modifier = Modifier) {
     RelayVector(
         vector = painterResource(R.drawable.frame_2_rectangle_3),
-        modifier = modifier.requiredWidth(293.0.dp).requiredHeight(73.0.dp).relayDropShadow(
-            color = Color(
-                alpha = 63,
-                red = 0,
-                green = 0,
-                blue = 0
-            ),
-            borderRadius = 10.0.dp,
-            blur = 4.0.dp,
-            offsetX = 0.0.dp,
-            offsetY = 4.0.dp,
-            spread = 0.0.dp
-        )
+        modifier = modifier
+            .requiredWidth(293.0.dp)
+            .requiredHeight(73.0.dp)
+            .relayDropShadow(
+                color = Color(
+                    alpha = 63,
+                    red = 0,
+                    green = 0,
+                    blue = 0
+                ),
+                borderRadius = 10.0.dp,
+                blur = 4.0.dp,
+                offsetX = 0.0.dp,
+                offsetY = 4.0.dp,
+                spread = 0.0.dp
+            )
     )
 }
 
@@ -346,18 +369,21 @@ fun Rpm(modifier: Modifier = Modifier) {
         height = 1.253999948501587.em,
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
+        overflow = TextOverflow.Visible,
         maxLines = -1,
-        modifier = modifier.requiredWidth(36.0.dp).requiredHeight(19.0.dp)
+        modifier = modifier
+            .requiredWidth(36.0.dp)
+            .requiredHeight(19.0.dp)
     )
 }
 
 @Composable
 fun Class1190(
-    rpmTextContent: Unit,
+    rpmTextContent: String,
     modifier: Modifier = Modifier
 ) {
     RelayText(
-        content = "teste",
+        content = rpmTextContent,
         fontSize = 21.0.sp,
         fontFamily = orbitron,
         color = Color(
@@ -370,7 +396,9 @@ fun Class1190(
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(64.0.dp).requiredHeight(31.0.dp)
+        modifier = modifier
+            .requiredWidth(64.0.dp)
+            .requiredHeight(31.0.dp)
     )
 }
 
@@ -381,7 +409,10 @@ fun Ellipse1(
 ) {
     RelayVector(
         vector = painterResource(R.drawable.frame_2_ellipse_1),
-        modifier = modifier.tappable(onTap = onSettingsClick).requiredWidth(67.0.dp).requiredHeight(66.0.dp)
+        modifier = modifier
+            .tappable(onTap = onSettingsClick)
+            .requiredWidth(67.0.dp)
+            .requiredHeight(66.0.dp)
     )
 }
 
@@ -389,7 +420,9 @@ fun Ellipse1(
 fun Vector1(modifier: Modifier = Modifier) {
     RelayVector(
         vector = painterResource(R.drawable.frame_2_vector1),
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
 
@@ -402,7 +435,9 @@ fun IconAlignJustify(
         isStructured = false,
         clipToParent = false,
         content = content,
-        modifier = modifier.requiredWidth(31.0.dp).requiredHeight(20.0.dp)
+        modifier = modifier
+            .requiredWidth(31.0.dp)
+            .requiredHeight(20.0.dp)
     )
 }
 
@@ -410,19 +445,22 @@ fun IconAlignJustify(
 fun Rectangle4(modifier: Modifier = Modifier) {
     RelayVector(
         vector = painterResource(R.drawable.frame_2_rectangle_4),
-        modifier = modifier.requiredWidth(293.0.dp).requiredHeight(73.0.dp).relayDropShadow(
-            color = Color(
-                alpha = 63,
-                red = 0,
-                green = 0,
-                blue = 0
-            ),
-            borderRadius = 10.0.dp,
-            blur = 4.0.dp,
-            offsetX = 0.0.dp,
-            offsetY = 4.0.dp,
-            spread = 0.0.dp
-        )
+        modifier = modifier
+            .requiredWidth(293.0.dp)
+            .requiredHeight(73.0.dp)
+            .relayDropShadow(
+                color = Color(
+                    alpha = 63,
+                    red = 0,
+                    green = 0,
+                    blue = 0
+                ),
+                borderRadius = 10.0.dp,
+                blur = 4.0.dp,
+                offsetX = 0.0.dp,
+                offsetY = 4.0.dp,
+                spread = 0.0.dp
+            )
     )
 }
 
@@ -431,7 +469,9 @@ fun Speedometer(modifier: Modifier = Modifier) {
     RelayImage(
         image = painterResource(R.drawable.frame_2_speedometer),
         contentScale = ContentScale.Fit,
-        modifier = modifier.requiredWidth(45.0.dp).requiredHeight(61.0.dp)
+        modifier = modifier
+            .requiredWidth(45.0.dp)
+            .requiredHeight(61.0.dp)
     )
 }
 
@@ -440,7 +480,9 @@ fun GasStation(modifier: Modifier = Modifier) {
     RelayImage(
         image = painterResource(R.drawable.frame_2_gas_station),
         contentScale = ContentScale.Fit,
-        modifier = modifier.requiredWidth(47.0.dp).requiredHeight(74.0.dp)
+        modifier = modifier
+            .requiredWidth(47.0.dp)
+            .requiredHeight(74.0.dp)
     )
 }
 
@@ -449,7 +491,9 @@ fun CarBattery(modifier: Modifier = Modifier) {
     RelayImage(
         image = painterResource(R.drawable.frame_2_car_battery),
         contentScale = ContentScale.Fit,
-        modifier = modifier.requiredWidth(46.0.dp).requiredHeight(43.0.dp)
+        modifier = modifier
+            .requiredWidth(46.0.dp)
+            .requiredHeight(43.0.dp)
     )
 }
 
@@ -491,7 +535,9 @@ fun Class67(
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(81.0.dp).requiredHeight(36.0.dp)
+        modifier = modifier
+            .requiredWidth(81.0.dp)
+            .requiredHeight(36.0.dp)
     )
 }
 
@@ -517,6 +563,8 @@ fun TopLevel(
             blue = 0
         ),
         content = content,
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
