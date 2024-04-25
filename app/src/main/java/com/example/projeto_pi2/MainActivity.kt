@@ -267,5 +267,5 @@ fun RPMViewer(): String {
         }
     }
 
-    return rpm.toString() + " rpm"
+    return rpm.toString()
 }

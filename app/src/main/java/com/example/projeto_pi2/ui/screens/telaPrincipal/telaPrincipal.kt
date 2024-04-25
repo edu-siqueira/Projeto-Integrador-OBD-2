@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,6 +30,7 @@ import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayImage
 import com.google.relay.compose.RelayText
 import com.google.relay.compose.RelayVector
+import com.google.relay.compose.RowScopeInstanceImpl.weight
 import com.google.relay.compose.relayDropShadow
 import com.google.relay.compose.tappable
 
@@ -106,7 +108,7 @@ fun Tela_Principal(
                 )
             )
         )
-        Class1190(
+        rpmTextValue(
             rpmTextContent = rpmTextContent,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
@@ -184,7 +186,7 @@ fun Tela_Principal(
                 )
             )
         )
-        Class67(
+        gasTextValue(
             param67TextContent = param67TextContent,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
@@ -370,20 +372,18 @@ fun Rpm(modifier: Modifier = Modifier) {
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         overflow = TextOverflow.Visible,
-        maxLines = -1,
-        modifier = modifier
-            .requiredWidth(36.0.dp)
-            .requiredHeight(19.0.dp)
+        maxLines = 1,
+        modifier = modifier.requiredHeight(19.0.dp)
     )
 }
 
 @Composable
-fun Class1190(
+fun rpmTextValue(
     rpmTextContent: String,
     modifier: Modifier = Modifier
 ) {
     RelayText(
-        content = rpmTextContent,
+        content = rpmTextContent + " rpm",
         fontSize = 21.0.sp,
         fontFamily = orbitron,
         color = Color(
@@ -396,8 +396,7 @@ fun Class1190(
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier
-            .requiredWidth(64.0.dp)
+        modifier = modifier.widthIn(max = 200.dp) // Definir a largura máxima conforme necessário
             .requiredHeight(31.0.dp)
     )
 }
@@ -517,7 +516,7 @@ fun CombustVel(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Class67(
+fun gasTextValue(
     param67TextContent: String,
     modifier: Modifier = Modifier
 ) {
