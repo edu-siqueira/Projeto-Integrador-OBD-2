@@ -1,12 +1,19 @@
 package com.example.projeto_pi2
 
+import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
+import android.content.Context
+import android.content.Intent
+import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.expandVertically
@@ -47,27 +54,28 @@ private const val ENABLE_BLUETOOTH_REQUEST_CODE = 1
 private var MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
 
 var RPM = RPMCommand()
+var socket: BluetoothSocket? = null;
 
 class MainActivity : ComponentActivity() {
     // Inicializando adaptador Bluetooth
-//    private val bluetoothAdapter: BluetoothAdapter by lazy {
-//        val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
-//        bluetoothManager.adapter
-//    }
+    private val bluetoothAdapter: BluetoothAdapter by lazy {
+        val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+        bluetoothManager.adapter
+    }
 
     // Pedindo permissão para ativar Bluetooth
-//    private fun checkAndroidVersion () {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-//            // Android 11-
-//            this.requestPermissions.launch(arrayOf(
-//                Manifest.permission.BLUETOOTH_SCAN,
-//                Manifest.permission.BLUETOOTH_CONNECT
-//            ))
-//        } else {
-//            // Android 12+
-//            this.requestBluetooth()
-//        }
-//    }
+    private fun checkAndroidVersion () {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Android 11-
+            this.requestPermissions.launch(arrayOf(
+                android.Manifest.permission.BLUETOOTH_SCAN,
+                android.Manifest.permission.BLUETOOTH_CONNECT
+            ))
+        } else {
+            // Android 12+
+            this.requestBluetooth()
+        }
+    }
 
     private val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         permissions.entries.forEach {
@@ -76,7 +84,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        result ->
+            result ->
         if (result.resultCode == RESULT_OK) {
             // Continuar
         } else {
@@ -92,7 +100,7 @@ class MainActivity : ComponentActivity() {
 
     private fun getPairedDevices(): Set<BluetoothDevice> {
         var pairedDevices: Set<BluetoothDevice> = emptySet()
-        if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(android.Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
             pairedDevices = bluetoothAdapter.bondedDevices
             pairedDevices?.forEach { device ->
                 val deviceName = device.name
@@ -107,10 +115,10 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun getSocket(): BluetoothSocket? {
-        val obddevice: BluetoothDevice? = bluetoothAdapter.getRemoteDevice("AA:BB:CC:11:22:33");
+        var obddevice: BluetoothDevice? = bluetoothAdapter.getRemoteDevice("AA:BB:CC:11:22:33");
         var socket: BluetoothSocket? = null;
         try {
-            if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+            if (checkSelfPermission(android.Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
                 socket = obddevice?.createRfcommSocketToServiceRecord(MY_UUID);
             }
             return socket;
@@ -157,7 +165,7 @@ class MainActivity : ComponentActivity() {
         if (!bluetoothAdapter.isEnabled) {
             requestBluetooth();
         }
-        val socket = getSocket()*/
+        val socket = getSocket()
 
         if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED){
             try {
@@ -267,9 +275,9 @@ fun RPMViewer(): String {
     LaunchedEffect(key1 = true) {
         while (true) {
             delay(1000)
-            rotacoes = RPM.sendCommand().toInt()
+            var rotacoes = RPM.sendCommand(socket)
         }
     }
 
-    return rotacoes.toString()
+    return rotacoes.toString();
 }
