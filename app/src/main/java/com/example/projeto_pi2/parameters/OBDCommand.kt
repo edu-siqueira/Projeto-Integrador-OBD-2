@@ -17,7 +17,8 @@ abstract class OBDCommand (val cmd: String) {
             val outputStream: OutputStream? = socket?.outputStream
             outputStream?.write(cmd.toByteArray());
             val resposta = receiveResponse(socket)
-            return resposta
+            return convertToReadable(resposta)
+
         } catch (e: Exception) {
             Log.d("Erro", e.toString())
             return e.toString()
@@ -36,6 +37,7 @@ abstract class OBDCommand (val cmd: String) {
         return response
     }
 
-    protected abstract fun convertToReadable();
+
+    protected abstract fun convertToReadable(resposta: String): String;
     protected abstract fun returnFormattedValue(): String;
 }
