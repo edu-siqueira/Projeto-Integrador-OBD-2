@@ -12,28 +12,41 @@ import java.io.OutputStream
 
 abstract class OBDCommand (val cmd: String) {
 
-    fun sendCommand (socket: BluetoothSocket?): String {
+    fun sendCommand (outputStream: OutputStream?, inputStream: InputStream?): Int {
         try {
-            val outputStream: OutputStream? = socket?.outputStream
+            val bytes: Int?
+            var response = "";
+            val buffer = ByteArray(2048);
             outputStream?.write(cmd.toByteArray());
-            val resposta = receiveResponse(socket)
-            return convertToReadable(resposta)
-
+            Log.d("Comando", cmd)
+            Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes)
+            }
+            Log.d("RPM", response)
+            val byte_a = response.substring(6, 8).toLong(16)
+            Log.d("Byte A", byte_a.toString())
+            val byte_b = response.substring(9, 11).toLong(16)
+            Log.d("Byte B", byte_b.toString())
+            val result = ((256 * byte_a) + byte_b) / 4
+            return result.toInt()
         } catch (e: Exception) {
             Log.d("Erro", e.toString())
-            return e.toString()
+            return 0
         }
     }
 
     fun receiveResponse (socket: BluetoothSocket?): String {
-        val inputStream: InputStream? = socket?.inputStream
-        val buffer = ByteArray(1024);
+        var inputStream: InputStream? = socket?.inputStream
+        var buffer = ByteArray(2048);
         var bytes: Int?
-        var response: String = "";
+        var response = "";
         bytes = inputStream?.read(buffer);
         bytes?.let {
             response = String(buffer, 0, bytes)
         }
+        Log.d("RPM", response)
         return response
     }
 

@@ -29,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -57,6 +58,7 @@ var RPM = RPMCommand()
 var socket: BluetoothSocket? = null;
 
 class MainActivity : ComponentActivity() {
+
     // Inicializando adaptador Bluetooth
     private val bluetoothAdapter: BluetoothAdapter by lazy {
         val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
@@ -114,65 +116,111 @@ class MainActivity : ComponentActivity() {
         return pairedDevices
     }
 
-    private fun getSocket(): BluetoothSocket? {
+    fun getSocket() {
         var obddevice: BluetoothDevice? = bluetoothAdapter.getRemoteDevice("AA:BB:CC:11:22:33");
-        var socket: BluetoothSocket? = null;
-        try {
-            if (checkSelfPermission(android.Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
-                socket = obddevice?.createRfcommSocketToServiceRecord(MY_UUID);
-            }
-            return socket;
-        } catch (error: Exception) {
-            // Criar aviso que não achou o OBDII
-            Log.d("Scanner", error.toString())
-            return socket
+        if (checkSelfPermission(android.Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+            socket = obddevice?.createRfcommSocketToServiceRecord(MY_UUID);
         }
     }
 
-    private fun initializeAdapter(socket: BluetoothSocket?) {
+    private fun initializeAdapter() {
         // atz, atl1, ath0, atsp0
         try {
             val set_default = "AT D\r"
             val reset = "AT Z\r"
-            val echo = "AT E1\r"
+            val echo = "AT E0\r"
             val feed = "AT L0\r"
             val spaces = "AT S1\r"
             val headers = "AT H0\r"
             val protocol = "AT SP 0\r"
+            val recommended = "01 0C\r"
             val outputStream: OutputStream? = socket?.outputStream
             val inputStream: InputStream? = socket?.inputStream
+            var buffer = ByteArray(2048);
+            var bytes: Int?
+            var response = "";
             outputStream?.write(set_default.toByteArray());
             Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes!!)
+            }
+            Log.d("Set Default", response)
             outputStream?.write(reset.toByteArray());
             Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes!!)
+            }
+            Log.d("Reset", response)
             outputStream?.write(echo.toByteArray());
             Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes!!)
+            }
+            Log.d("Echo", response)
             outputStream?.write(feed.toByteArray())
             Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes!!)
+            }
+            Log.d("Feed", response)
             outputStream?.write(spaces.toByteArray());
             Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes!!)
+            }
+            Log.d("Spaces", response)
             outputStream?.write(headers.toByteArray());
             Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes!!)
+            }
+            Log.d("Headers", response)
             outputStream?.write(protocol.toByteArray());
+            Thread.sleep(1000)
+            bytes = inputStream?.read(buffer);
+            bytes?.let {
+                response = String(buffer, 0, bytes!!)
+            }
+            Log.d("Protocol", response)
+            Thread.sleep(1000)
+            var i = 0
+            while(i < 3) {
+                outputStream?.write(recommended.toByteArray());
+                Thread.sleep(1000)
+                bytes = inputStream?.read(buffer);
+                bytes?.let {
+                    response = String(buffer, 0, bytes!!)
+                }
+                Log.d("RPM", response)
+                Thread.sleep(1000)
+                i += 1
+            }
         } catch (e: Exception) {
             Log.d("Adaptador", e.toString())
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        getPairedDevices()
         super.onCreate(savedInstanceState)
         this.checkAndroidVersion();
         if (!bluetoothAdapter.isEnabled) {
             requestBluetooth();
         }
-        val socket = getSocket()
 
         if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED){
             try {
+                getSocket()
                 socket?.let {
                     bluetoothAdapter.cancelDiscovery()
-                    socket.connect();
-                    initializeAdapter(socket)
+                    socket!!.connect();
+                    initializeAdapter()
                 }
             } catch (e: Exception) {
                 Log.d("Socket", e.toString())
@@ -270,12 +318,14 @@ fun EnterAnimation(content: @Composable () -> Unit) {
 @Composable
 fun RPMViewer(): String {
 
-    var rotacoes by remember { mutableStateOf(0) }
+    var rotacoes by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(key1 = true) {
         while (true) {
+            val outputStream: OutputStream? = socket?.outputStream
+            val inputStream: InputStream? = socket?.inputStream
             delay(1000)
-            var rotacoes = RPM.sendCommand(socket)
+            rotacoes = RPM.sendCommand(outputStream, inputStream)
         }
     }
 
