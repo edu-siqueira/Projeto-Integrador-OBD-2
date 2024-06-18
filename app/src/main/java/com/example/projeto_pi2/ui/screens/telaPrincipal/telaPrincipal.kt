@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -30,25 +29,25 @@ import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayImage
 import com.google.relay.compose.RelayText
 import com.google.relay.compose.RelayVector
-import com.google.relay.compose.RowScopeInstanceImpl.weight
 import com.google.relay.compose.relayDropShadow
 import com.google.relay.compose.tappable
 
 /**
- * Tela principal do aplicativo.
+
+Tela principal do aplicativo.
  */
 @Composable
 fun Tela_Principal(
     modifier: Modifier = Modifier,
     errorsCountTextContent: String = "",
-    voltsTextContent: String = "",
+    oilTempTextContent: String = "",
     rpmTextContent: String,
-    param67TextContent: String = "",
+    coolantTempTextContent: String = "",
     onErrorClick: () -> Unit = {},
     onSettingsClick: () -> Unit = {}
 ) {
     TopLevel(modifier = modifier) {
-        Class3ErroSDetectados(
+        errosDetectados(
             onErrorClick = onErrorClick,
             errorsCountTextContent = errorsCountTextContent,
             modifier = Modifier.boxAlign(
@@ -71,22 +70,22 @@ fun Tela_Principal(
                 )
             )
         )
-        Bateria(
+        OilTemperature(
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
                     x = 42.0.dp,
-                    y = 269.0.dp
+                    y = 250.0.dp
                 )
             )
         )
-        Class145Volts(
-            voltsTextContent = voltsTextContent,
+        oilTempTextContent(
+            oilTextContent = oilTempTextContent,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
                     x = 121.0.dp,
-                    y = 246.0.dp
+                    y = 240.0.dp
                 )
             )
         )
@@ -104,17 +103,17 @@ fun Tela_Principal(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
                     x = 46.0.dp,
-                    y = 457.0.dp
+                    y = 435.0.dp
                 )
             )
         )
-        rpmTextValue(
+        RpmTextValue(
             rpmTextContent = rpmTextContent,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
                     x = 145.0.dp,
-                    y = 436.0.dp
+                    y = 430.0.dp
                 )
             )
         )
@@ -150,44 +149,17 @@ fun Tela_Principal(
                 )
             )
         )
-        Speedometer(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 41.0.dp,
-                    y = 406.0.dp
-                )
-            )
-        )
-        GasStation(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 45.0.dp,
-                    y = 303.0.dp
-                )
-            )
-        )
-        CarBattery(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 44.0.dp,
-                    y = 226.0.dp
-                )
-            )
-        )
-        CombustVel(
+        CoolantTemperature(
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
                     x = 36.0.dp,
-                    y = 365.0.dp
+                    y = 340.0.dp
                 )
             )
         )
-        gasTextValue(
-            param67TextContent = param67TextContent,
+        coolantTextValue(
+            coolantTextContent = coolantTempTextContent,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
@@ -198,7 +170,6 @@ fun Tela_Principal(
         )
     }
 }
-
 @Preview(widthDp = 355, heightDp = 567)
 @Composable
 private fun Frame2Preview() {
@@ -207,10 +178,10 @@ private fun Frame2Preview() {
             Tela_Principal(
                 errorsCountTextContent = "3 Erro(s) detectados",
                 onErrorClick = {},
-                voltsTextContent = "14.5 Volts",
+                oilTempTextContent = "",
                 rpmTextContent = "",
                 onSettingsClick = {},
-                param67TextContent = "67%",
+                coolantTempTextContent = "",
                 modifier = Modifier
                     .rowWeight(1.0f)
                     .columnWeight(1.0f)
@@ -220,7 +191,7 @@ private fun Frame2Preview() {
 }
 
 @Composable
-fun Class3ErroSDetectados(
+fun errosDetectados(
     onErrorClick: () -> Unit,
     errorsCountTextContent: String,
     modifier: Modifier = Modifier
@@ -287,9 +258,9 @@ fun Rectangle2(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Bateria(modifier: Modifier = Modifier) {
+fun OilTemperature(modifier: Modifier = Modifier) {
     RelayText(
-        content = "Bateria",
+        content = "Óleo",
         fontSize = 12.0.sp,
         fontFamily = orbitron,
         color = Color(
@@ -298,7 +269,7 @@ fun Bateria(modifier: Modifier = Modifier) {
             green = 166,
             blue = 16
         ),
-        height = 1.253999948501587.em,
+        height = 0.25.em,
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
@@ -309,12 +280,12 @@ fun Bateria(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Class145Volts(
-    voltsTextContent: String,
+fun oilTempTextContent(
+    oilTextContent: String,
     modifier: Modifier = Modifier
 ) {
     RelayText(
-        content = voltsTextContent,
+        content = "$oilTextContent C°",
         fontSize = 21.0.sp,
         fontFamily = orbitron,
         color = Color(
@@ -323,13 +294,13 @@ fun Class145Volts(
             green = 166,
             blue = 16
         ),
-        height = 1.253999982561384.em,
-        textAlign = TextAlign.Left,
+        height = 1.25.em,
+        textAlign = TextAlign.Center,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier
-            .requiredWidth(134.0.dp)
-            .requiredHeight(36.0.dp)
+        modifier = modifier.widthIn(max = 200.dp) // Definir a largura máxima conforme necessário
+            .requiredHeight(31.0.dp)
+            .padding(start=25.dp)
     )
 }
 
@@ -368,7 +339,7 @@ fun Rpm(modifier: Modifier = Modifier) {
             green = 166,
             blue = 16
         ),
-        height = 1.253999948501587.em,
+        height = 1.25.em,
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         overflow = TextOverflow.Visible,
@@ -378,12 +349,12 @@ fun Rpm(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun rpmTextValue(
+fun RpmTextValue(
     rpmTextContent: String,
     modifier: Modifier = Modifier
 ) {
     RelayText(
-        content = rpmTextContent + " rpm",
+        content = "$rpmTextContent rpm",
         fontSize = 21.0.sp,
         fontFamily = orbitron,
         color = Color(
@@ -392,7 +363,7 @@ fun rpmTextValue(
             green = 166,
             blue = 16
         ),
-        height = 1.253999982561384.em,
+        height = 1.25.em,
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
@@ -421,7 +392,7 @@ fun Vector1(modifier: Modifier = Modifier) {
         vector = painterResource(R.drawable.frame_2_vector1),
         modifier = modifier
             .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
+            .fillMaxHeight(2.0f)
     )
 }
 
@@ -464,42 +435,9 @@ fun Rectangle4(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Speedometer(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.frame_2_speedometer),
-        contentScale = ContentScale.Fit,
-        modifier = modifier
-            .requiredWidth(45.0.dp)
-            .requiredHeight(61.0.dp)
-    )
-}
-
-@Composable
-fun GasStation(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.frame_2_gas_station),
-        contentScale = ContentScale.Fit,
-        modifier = modifier
-            .requiredWidth(47.0.dp)
-            .requiredHeight(74.0.dp)
-    )
-}
-
-@Composable
-fun CarBattery(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.frame_2_car_battery),
-        contentScale = ContentScale.Fit,
-        modifier = modifier
-            .requiredWidth(46.0.dp)
-            .requiredHeight(43.0.dp)
-    )
-}
-
-@Composable
-fun CombustVel(modifier: Modifier = Modifier) {
+fun CoolantTemperature(modifier: Modifier = Modifier) {
     RelayText(
-        content = "Combustível",
+        content = "Arrefecimento",
         fontSize = 12.0.sp,
         fontFamily = orbitron,
         color = Color(
@@ -508,7 +446,7 @@ fun CombustVel(modifier: Modifier = Modifier) {
             green = 166,
             blue = 16
         ),
-        height = 1.253999948501587.em,
+        height = 0.1.em,
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         modifier = modifier
@@ -516,12 +454,12 @@ fun CombustVel(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun gasTextValue(
-    param67TextContent: String,
+fun coolantTextValue(
+    coolantTextContent: String,
     modifier: Modifier = Modifier
 ) {
     RelayText(
-        content = param67TextContent,
+        content = "$coolantTextContent C°",
         fontSize = 21.0.sp,
         fontFamily = orbitron,
         color = Color(
@@ -530,13 +468,12 @@ fun gasTextValue(
             green = 166,
             blue = 16
         ),
-        height = 1.253999982561384.em,
-        textAlign = TextAlign.Left,
+        height = 1.25.em,
+        textAlign = TextAlign.Center,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier
-            .requiredWidth(81.0.dp)
-            .requiredHeight(36.0.dp)
+        modifier = modifier.widthIn(max = 200.dp) // Definir a largura máxima conforme necessário
+            .requiredHeight(31.0.dp)
     )
 }
 
@@ -564,6 +501,6 @@ fun TopLevel(
         content = content,
         modifier = modifier
             .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
+            .fillMaxHeight(5.0f)
     )
 }

@@ -29,15 +29,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.projeto_pi2.frame3.Frame3
-import com.example.projeto_pi2.frame4.Frame4
 import com.example.projeto_pi2.telaPrincipal.Tela_Principal
 import com.example.projeto_pi2.ui.screens.telaInicial.Tela_Inicial
+import com.example.projeto_pi2.ui.screens.telaDeSelecao.TelaDeSelecao
+import com.example.projeto_pi2.ui.screens.telaDeErros.TelaDeErros
 import com.example.projeto_pi2.ui.theme.Projetopi2Theme
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.UUID
 import kotlinx.coroutines.delay
+import kotlin.random.Random
 
 private const val ENABLE_BLUETOOTH_REQUEST_CODE = 1
 private var MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
@@ -176,6 +177,8 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
                     val rpmViewer = RPMViewer()
+                    val oilTemp = oilTempViewer()
+                    val coolantTemp = coolantTempViewer()
 
                     NavHost(
                         navController = navController,
@@ -197,9 +200,9 @@ class MainActivity : ComponentActivity() {
                             EnterAnimation {
                                 Tela_Principal(
                                     errorsCountTextContent = "3 erro(s) detectados!",
-                                    voltsTextContent = "14.5 Volts",
+                                    oilTempTextContent = oilTemp,
                                     rpmTextContent = rpmViewer,
-                                    param67TextContent = "67%",
+                                    coolantTempTextContent = coolantTemp,
                                     onSettingsClick = { navController.navigate("tela_de_opcoes") },
                                     onErrorClick = { navController.navigate("tela_de_erros") },
                                 )
@@ -207,12 +210,12 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("tela_de_opcoes"){
                             EnterAnimation {
-                                Frame3(onSettingsClick = {navController.navigate("tela_principal")})
+                                TelaDeSelecao(onSettingsClick = {navController.navigate("tela_principal")})
                             }
                         }
                         composable("tela_de_erros"){
                            EnterAnimation {
-                               Frame4(onSettingsClick = {navController.navigate("tela_principal")})
+                               TelaDeErros(onSettingsClick = {navController.navigate("tela_principal")})
                            }
                         }
                     }
@@ -262,10 +265,40 @@ fun RPMViewer(): String {
 
     LaunchedEffect(key1 = true) {
         while (true) {
-            delay(1000)
-            rpm = (rpm + 100) % 10000  // Simula o aumento do RPM até 8000
+            delay(500)
+            rpm = (rpm + 100) % 10000  // Simula o aumento do RPM até 10000
         }
     }
 
     return rpm.toString()
+}
+
+@Composable
+fun oilTempViewer(): String {
+
+    var oilTemp by remember { mutableStateOf(0) }
+
+    LaunchedEffect(key1 = true) {
+        while (true) {
+            delay(500)
+            oilTemp = Random.nextInt(110, 120) // Simula o aumento da temperatura até 120
+        }
+    }
+
+    return oilTemp.toString()
+}
+
+@Composable
+fun coolantTempViewer(): String {
+
+    var coolantTemp by remember { mutableStateOf(0) }
+
+    LaunchedEffect(key1 = true) {
+        while (true) {
+            delay(500)
+            coolantTemp = Random.nextInt(70, 80) // Simula o aumento da temperatura até 80
+        }
+    }
+
+    return coolantTemp.toString()
 }
